@@ -1,0 +1,11 @@
+<div class="games-containers">
+    <div class="games-list">
+        <thirty-games-list [games]="games$ | async" (selected)="select($event)" (deleted)="delete($event)">
+        </thirty-games-list>
+    </div>
+    <div [@openClose]="detailOpen ? 'open' : 'closed'" >
+        <thirty-games-detail [game]="game$ | async" (saved)="save($event)" (cancelled)="cancel()" 
+        (click)="focusDetail();$event.stopImmediatePropagation()" > 
+        </thirty-games-detail>
+    </div>
+</div>
